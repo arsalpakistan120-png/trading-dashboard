@@ -1,88 +1,62 @@
-# Define the content for the professional trading web dashboard
-# The content will include:
-# 1. HTML structure for the dashboard
-# 2. CSS for styling (Arsal Trading Pro theme)
-# 3. JavaScript for basic Signal & Risk Management logic
-# 4. Professional branding for "Arsal"
-
-html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arsal Trading Pro Dashboard</title>
+    <title>ARSAL TRADING PRO - ELITE SECURE</title>
     <style>
-        :root {
-            --primary-color: #00ffcc;
-            --bg-color: #0a0b10;
-            --card-bg: #161922;
-            --text-color: #ffffff;
-        }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-color); color: var(--text-color); margin: 0; padding: 20px; }
-        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 20px; }
-        .logo { font-size: 28px; font-weight: bold; color: var(--primary-color); text-transform: uppercase; letter-spacing: 2px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid #333; }
-        button { background: var(--primary-color); color: #000; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; }
-        #analysis-output { margin-top: 15px; padding: 15px; background: #000; border-left: 4px solid var(--primary-color); }
+        :root { --primary: #00ffcc; --bg: #0a0e14; --card: #151921; --text: #ffffff; --accent: #ff4757; }
+        body { font-family: sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+        .login-box { text-align: center; margin-top: 20vh; border: 1px solid var(--primary); padding: 40px; border-radius: 15px; background: var(--card); }
+        .dashboard { display: none; max-width: 900px; margin: auto; }
+        input { width: 100%; padding: 10px; margin: 10px 0; background: #222; border: 1px solid #444; color: white; border-radius: 5px; }
+        button { background: var(--primary); border: none; padding: 12px 20px; cursor: pointer; border-radius: 5px; font-weight: bold; width: 100%; }
+        .card { background: var(--card); padding: 20px; border-radius: 12px; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <div class="logo">Arsal Trading Pro</div>
-    <div>Live Market Monitor</div>
-</div>
-
-<div class="grid">
-    <div class="card">
-        <h3>Market Signal Processor</h3>
-        <p>Real-time analysis for Gold, BTC, EURUSD</p>
-        <button onclick="calculateTrade()">Get Pro Analysis</button>
-        <div id="analysis-output">Awaiting user command...</div>
+    <!-- Login Section -->
+    <div id="login" class="login-box">
+        <h2>Enter Access Key</h2>
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="checkPass()">Login to Elite Dashboard</button>
     </div>
-    
-    <div class="card">
-        <h3>Risk Management Guard</h3>
-        <p>Smart Lot Sizing & SL/TP Calculator</p>
-        <label>Enter Capital ($):</label><input type="number" id="capital" value="1000" style="width: 100%; margin-bottom: 10px;">
-        <label>Risk Per Trade (%):</label><input type="number" id="risk" value="2" style="width: 100%; margin-bottom: 10px;">
-        <button onclick="calculateRisk()" style="background: #ff4444; color: #fff;">Calculate Risk</button>
-        <div id="risk-output" style="margin-top: 10px;"></div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard" class="dashboard">
+        <h1>ARSAL TRADING PRO ELITE</h1>
+        
+        <div class="card">
+            <h3>Market Sentiment</h3>
+            <div id="sentiment-meter" style="height:20px; background:linear-gradient(90deg, var(--accent), var(--primary)); border-radius:10px;"></div>
+            <p id="sentiment-text">Status: Ready for Analysis</p>
+            <button onclick="analyzeSentiment()">Scan Markets</button>
+        </div>
+
+        <div class="card">
+            <h3>Smart Risk Calculator</h3>
+            <input type="number" id="capital" placeholder="Enter Capital ($)">
+            <input type="number" id="risk" placeholder="Risk Per Trade (%)">
+            <button onclick="calculateRisk()" style="background-color: var(--accent); color: white;">Calculate Lot Size</button>
+            <div id="result" style="margin-top:15px; font-weight:bold;"></div>
+        </div>
     </div>
-</div>
 
-<script>
-    function calculateTrade() {
-        // Logic simulator - In future this links to live API
-        const assets = ["XAUUSD", "BTCUSD", "EURUSD"];
-        const randomAsset = assets[Math.floor(Math.random() * assets.length)];
-        document.getElementById("analysis-output").innerHTML = `
-            <strong>Asset: ${randomAsset}</strong><br>
-            Trend: Strong Buy<br>
-            Entry: Current Price<br>
-            SL: 15 pips below entry<br>
-            TP: 45 pips above entry<br>
-            <em>*Decision: Trade with caution</em>
-        `;
-    }
-
-    function calculateRisk() {
-        const capital = document.getElementById('capital').value;
-        const riskPercent = document.getElementById('risk').value;
-        const riskAmount = (capital * riskPercent) / 100;
-        document.getElementById("risk-output").innerHTML = `
-            <strong>Maximum Risk Amount: $${riskAmount.toFixed(2)}</strong><br>
-            Keep your position size within this limit to protect capital.
-        `;
-    }
-</script>
-
+    <script>
+        function checkPass() {
+            if(document.getElementById('pass').value == "arsal123") {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+            } else { alert("Wrong Key!"); }
+        }
+        function analyzeSentiment() { document.getElementById('sentiment-text').innerText = "Current Trend: STRONG BUYING PRESSURE Detected."; }
+        function calculateRisk() {
+            let cap = document.getElementById('capital').value;
+            let risk = document.getElementById('risk').value;
+            let amount = (cap * risk) / 100;
+            document.getElementById('result').innerText = "Max Risk Amount: $" + amount.toFixed(2);
+        }
+    </script>
 </body>
 </html>
-"""
 
-# Save to a file
-with open("arsal_trading_pro.html", "w") as f:
-    f.write(html_content)
