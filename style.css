@@ -1,0 +1,142 @@
+/* ARSALTRADE ELITE | PREMIUM INSTITUTIONAL BLUE & WHITE THEME */
+
+:root {
+    --primary-blue: #004080; /* Deep Institutional Blue */
+    --secondary-blue: #0059b3;
+    --light-blue-bg: #e6f0fa;
+    --pure-white: #ffffff;
+    --app-bg: #f5f7fa;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #cbd5e1;
+    --success-green: #10b981;
+    --danger-red: #ef4444;
+}
+
+body {
+    background-color: var(--app-bg);
+    color: var(--text-main);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Top Navigation Header */
+header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue)) !important;
+    color: var(--pure-white) !important;
+    padding: 15px 25px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--light-blue-bg) !important;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Dashboard Grid Fix */
+.grid {
+    display: grid !important;
+    grid-template-columns: 280px 1fr 320px !important;
+    gap: 20px !important;
+    padding: 20px !important;
+    height: calc(100vh - 80px) !important;
+    box-sizing: border-box;
+}
+
+/* Professional White Panels (Overriding Tailwind Dark Classes) */
+.bg-gray-800, .bg-black, aside, main {
+    background-color: var(--pure-white) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03) !important;
+    padding: 20px !important;
+    color: var(--text-main) !important;
+}
+
+/* Panel Headings */
+aside h2, main h2 {
+    color: var(--primary-blue) !important;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--light-blue-bg);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Calculator Inputs */
+input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--app-bg);
+    color: var(--text-main);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px var(--light-blue-bg);
+}
+
+/* Action Buttons */
+button {
+    background-color: var(--primary-blue) !important;
+    color: var(--pure-white) !important;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background-color: var(--secondary-blue) !important;
+    transform: translateY(-1px);
+}
+
+/* Watchlist & News Feed Styling */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+    color: var(--text-main);
+    display: flex;
+    justify-content: space-between;
+}
+
+ul li:last-child {
+    border-bottom: none;
+}
+
+/* Timer Badge */
+.timer {
+    background-color: var(--pure-white);
+    color: var(--primary-blue);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
