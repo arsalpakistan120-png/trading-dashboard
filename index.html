@@ -59,4 +59,69 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsal Trading Pro Elite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0a0e14; color: white; font-family: 'Segoe UI', sans-serif; }
+        .card { background: #151921; border: 1px solid #2d3748; border-radius: 12px; }
+        .gradient-text { background: linear-gradient(90deg, #00ff88, #00d4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body>
 
+<!-- Navigation -->
+<nav class="p-5 border-b border-gray-800 flex justify-between items-center">
+    <h1 class="text-2xl font-bold gradient-text">Arsal Trading Pro Elite</h1>
+    <div class="space-x-6 text-gray-400">
+        <a href="#" class="hover:text-white">Dashboard</a>
+        <a href="#" class="hover:text-white">Risk Calculator</a>
+        <a href="#" class="hover:text-white">Live News</a>
+    </div>
+</nav>
+
+<!-- Main Grid -->
+<main class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+    
+    <!-- Market Overview -->
+    <div class="card p-6 col-span-2">
+        <h2 class="text-xl font-semibold mb-4">Live Market Data</h2>
+        <div class="h-64 flex items-center justify-center border-2 border-dashed border-gray-700 rounded-lg">
+            <p class="text-gray-500">TradingView Widget / Chart Area</p>
+        </div>
+    </div>
+
+    <!-- Right Panel (Signals/Alerts) -->
+    <div class="card p-6">
+        <h2 class="text-xl font-semibold mb-4">Market Sentiment</h2>
+        <div class="space-y-4">
+            <div class="flex justify-between p-3 bg-gray-900 rounded">
+                <span>Gold (XAUUSD)</span>
+                <span class="text-green-500 font-bold">BUY</span>
+            </div>
+            <div class="flex justify-between p-3 bg-gray-900 rounded">
+                <span>Bitcoin (BTC)</span>
+                <span class="text-red-500 font-bold">SELL</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Risk Calculator Section -->
+    <div class="card p-6 col-span-3">
+        <h2 class="text-xl font-semibold mb-4">Advanced Risk Calculator</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <input type="text" placeholder="Entry Price" class="bg-gray-800 p-3 rounded">
+            <input type="text" placeholder="Stop Loss" class="bg-gray-800 p-3 rounded">
+            <input type="text" placeholder="Take Profit" class="bg-gray-800 p-3 rounded">
+            <button class="bg-blue-600 hover:bg-blue-700 p-3 rounded font-bold">Calculate Risk</button>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>
